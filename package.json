@@ -12,6 +12,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "sequelize": "^3.30.4"
   }
 }
