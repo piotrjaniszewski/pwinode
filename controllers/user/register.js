@@ -2,7 +2,9 @@ var User = require('./../../models/user.js')
 
 module.exports.main = function(request, response) {
     User.findOne({
-        where: {email: request.body.email}
+        where: {
+            email: request.body.email
+        }
     }).then(function (us) {
         if(us===null){
             User.create({
@@ -20,8 +22,7 @@ module.exports.main = function(request, response) {
                 response.status(404).json(error)
             })
         } else {
-            response.status(404).json("adres email jest zajęty")
+            response.status(404).json("Adres email jest zajęty")
         }
     })
-
 }
