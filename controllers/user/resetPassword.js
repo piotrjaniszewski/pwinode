@@ -9,7 +9,7 @@ module.exports.main = function(request, response) {
         }
     }).then(function (user) {
         if(user===null){
-            response.status(404).json("Użytkownik nie istnieje")
+            response.status(402).json("Użytkownik nie istnieje")
         }
         else{
             if(user.question===request.body.question && user.answer===request.body.answer){
@@ -20,6 +20,8 @@ module.exports.main = function(request, response) {
                 },function (error) {
                     response.status(404).json(error)
                 })
+            } else {
+                response.status(402).json("Podano błędne dane")
             }
         }
     },function (error) {

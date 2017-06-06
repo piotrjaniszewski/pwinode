@@ -6,20 +6,20 @@ module.exports.main = function(request, response) {
         where: {
             token: request.body.sessionToken
         }
-    }).then(function (UserToken) {
-        if(UserToken===null){
-            response.status(404).json("Brak uprawnień do wyświetlenia danych")
-        }else{
+    }).then(function (userToken) {
+        if(userToken===null){
+            response.status(402).json("Brak uprawnień do wyświetlenia danych")
+        } else{
             User.findById(
-                request.body.userId
+                userToken.userId
             ).then(function(user) {
                 if(user===null){
-                    response.status(200).json("Użytkownik nie istnieje")
+                    response.status(403).json("Użytkownik nie istnieje")
                 }
                 else{
                     response.status(200).json(user)
                 }
-            })
-        }
+            })			
+			}
     })
 }

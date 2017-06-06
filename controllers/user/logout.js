@@ -15,9 +15,9 @@ module.exports.main = function(request, response) {
                 userToken.destroy()
                 response.status(200).json("wylogowano")
             } else {
-                response.status(404).json("Użytkownik nie jest zalogowany")
+                response.status(403).json("Użytkownik nie jest zalogowany")
             }
         }, function(error) {
-            response.status(404).json("dupa "+error)
+            response.status(402).json(error)
         })
 }

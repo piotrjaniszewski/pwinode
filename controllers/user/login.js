@@ -23,11 +23,11 @@ module.exports.main = function(request, response) {
                 }
                 response.status(200).json(responseObject)
             }),function (error) {
-                response.status(404).json(error)
+                response.status(401).json(error)
             }
         }
         else{
-            response.status(404).json("Błędny email lub hasło")
+            response.status(403).json("Błędny email lub hasło")
         }
 
     })

@@ -62,7 +62,7 @@ var User = sequelize.define('user', {
     },
 
     question: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
 

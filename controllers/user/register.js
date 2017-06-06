@@ -22,7 +22,7 @@ module.exports.main = function(request, response) {
                 response.status(404).json(error)
             })
         } else {
-            response.status(404).json("Adres email jest zajęty")
+            response.status(403).json("Adres email jest zajęty")
         }
     })
 }

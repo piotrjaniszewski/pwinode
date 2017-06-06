@@ -16,15 +16,11 @@ module.exports.main = function(request, response) {
             ).then(function(user) {
                 if(user === null){
                     response.status(404).json("Użytkownik nie istnieje")
-                }else{
+                } else{
                     user.update({
-                        email: request.body.email,
                         firstName: request.body.firstName,
                         lastName: request.body.lastName,
-                        password: request.body.password,
                         country: request.body.country,
-                        question:request.body.question,
-                        answer: request.body.answer
                     }).then(function (us) {
                         response.status(200).json(us)
                     })
